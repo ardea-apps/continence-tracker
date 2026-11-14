@@ -19,23 +19,6 @@ Each window includes today and the preceding 6, 13, or 27 days, respectively. Th
 
 Net pad weight is measured in grams; it can provide an approximate indication of leakage volume, but moisture other than urine may affect measurements. This app is a personal tracking tool, not a medical device or diagnostic tool.
 
-## Run locally
-
-Download or copy `index.html` and open it in a browser. No build step or dependencies are required.
-
-**Important:** Browser storage behavior for a local `file://` page varies by browser. A local file opened from the iPhone Files app may not retain measurements as reliably as a page served from a website. **Back up your local measurements before moving to GitHub Pages.** Data saved while running a local file will **not automatically transfer** to the published URL; use Export backup on the local copy and Restore backup on the hosted copy.
-
-## Publish with GitHub Pages
-
-1. Create a GitHub repository named `continence-tracker` under the intended account (for example, `ardea-apps`).
-2. Put `index.html` in the repository root.
-3. In **Settings → Pages**, configure **Deploy from a branch**, branch `main`, folder `/ (root)`, and save.
-4. Open the published GitHub Pages URL. If you have configured your existing custom domain and routing to support this repository path, you may use `https://apps.garcez.net/continence-tracker/` instead.
-
-Publishing this project does **not** require adding a link on your public Ardea Apps index. However, the published website/code is still publicly accessible if someone discovers its URL; an unlisted URL is not access protection.
-
-For iPhone home-screen access, open the hosted page in Safari, choose **Share → Add to Home Screen**, and follow the prompts.
-
 ## Where data lives
 
 Measurements and pad profiles are stored using browser `localStorage` under the key `continence-tracker-v1`. Data is kept separately for each browser and website origin, and does **not** sync between devices or browsers. The app does not upload measurements to GitHub or a remote database.
