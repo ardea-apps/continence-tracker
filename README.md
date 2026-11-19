@@ -1,49 +1,42 @@
-# Continence Tracker
+# Continence Tracker v1.1
 
-Continence Tracker is a small, responsive web app for recording pad weights and tracking changes in urinary leakage over time. It runs from a single `index.html` file, without an account, database, or server-side application.
+A standalone, mobile-friendly HTML application for tracking urinary leakage using individual dry and wet pad weights. No account, server, database, external library or network API is required.
 
 ## Features
 
-- Create pad types with a name and default **dry weight** (grams).
-- Record a **date**, **pad type**, **dry weight**, and **wet weight** for each used pad. You can override the dry weight for an individual measurement.
-- Automatically calculate **net weight = wet weight − dry weight**.
-- Record multiple pads on the same date; the app sums their net weights for that date.
-- See average **daily net weight** over the last **7, 14, and 28 calendar days**.
-- Edit or delete measurements and archive/reactivate pad types.
-- Export a complete **JSON backup**, restore it, or export measurements as **CSV**.
-- Use the same interface on a phone, tablet, or desktop browser.
+- Start a measurement by entering the actual dry weight and start time.
+- Complete it later using the actual wet weight and removal time.
+- Complete & Start New saves the old measurement and starts the next one in a single operation.
+- Enter historical completed measurements manually; edit or delete them later.
+- Edit or discard an active measurement.
+- Daily totals and rolling 7-, 14- and 28-day averages.
+- JSON backup and restore, including active measurements; CSV export of completed measurements.
+- Compatible with existing version 1.0 data and JSON backups.
 
-## How averages work
+## Calculations
 
-Each window includes today and the preceding 6, 13, or 27 days, respectively. The app adds the net weights of all pads for each recorded date, then divides the sum of those daily totals by the number of days **with entries** in that window. Days with no entries are **excluded** rather than assumed to have zero leakage. The dashboard displays the number of recorded days, for example `3 of 7 days recorded`.
+Net weight = wet weight − dry weight, in grams. Each pad is weighed individually; no pad profiles or default weights are needed. All of a completed pad's net weight belongs to its removal date (including when use spans midnight). Daily totals sum all completed measurements for that date. Rolling averages include today and the preceding 6, 13 or 27 calendar days respectively, dividing by the number of dates with completed measurements. Missing dates are excluded, not zero; a partially recorded day is included as recorded. Active measurements do not contribute. Pad-weight gain is a proxy for leakage and may include other moisture.
 
-Net pad weight is measured in grams; it can provide an approximate indication of leakage volume, but moisture other than urine may affect measurements. This app is a personal tracking tool, not a medical device or diagnostic tool.
+## Running and publishing
 
-## Where data lives
+Open `index.html` in a modern browser for local testing. Browser storage for local files varies by browser. For consistent use, host the app on GitHub Pages.
 
-Measurements and pad profiles are stored using browser `localStorage` under the key `continence-tracker-v1`. Data is kept separately for each browser and website origin, and does **not** sync between devices or browsers. The app does not upload measurements to GitHub or a remote database.
+1. Create the `continence-tracker` repository under `ardea-apps` (or use the existing repository).
+2. Upload `index.html`, `README.md` and `HOW_TO_USE.md` to the repository root.
+3. In Settings → Pages, deploy from the main branch, root folder.
+4. Open the resulting Pages URL, or `https://ardea-apps.garcez.net/continence-tracker/` if that custom domain is configured.
+5. Do not list this personal app on the public apps index if you prefer an unlisted link. An unlisted URL is not access control.
 
-Stored records may be lost when browser website data is cleared, a browser/profile is removed, or local-file storage is reset. Private browsing is not appropriate for durable record keeping. Regular JSON backups are strongly recommended.
+Works with modern desktop and mobile browsers. On iPhone, Safari's Share → Add to Home Screen can provide convenient access; verify storage and restore a backup if the home-screen app starts with empty data.
 
-## Back up and restore
+## Storage and privacy
 
-Open **Backup & data**:
+All measurements are kept in browser localStorage under the existing key `continence-tracker-v1`. GitHub hosts code only. Each browser/device/origin maintains its own dataset. There is no automatic synchronization. Local file and hosted storage are separate. Clearing website data or browser storage may erase records. JSON/CSV files are not encrypted; keep them in a secure location and never commit personal data to GitHub. Other scripts on the same web origin may have access to browser storage; local storage is not a security boundary between apps on that origin.
 
-- **Export backup (JSON)**: downloads a file containing measurements and pad-type settings. Save it in a location you control.
-- **Restore backup (JSON)**: selects a previously exported JSON file. **Warning: restore replaces all current measurements and pad profiles** in that browser after confirmation. Export a backup of current data first if you need it.
-- **Export history (CSV)**: creates a spreadsheet-compatible list of entries for analysis. **CSV cannot be used for Restore backup.**
+## Upgrade from v1.0
 
-Treat backups as personal health-related information and store/share them accordingly. The app does not encrypt the exported files.
+Export a JSON backup before replacing the HTML. Version 1.1 reads the old storage key and migrates completed entries on the next successful save, retaining their dates and dry/wet values and historical pad names. Old entries have no start/end timestamps; these remain blank rather than being invented. Old profile settings are no longer used or included in new backups. Version 1.1 uses backup schema version 2, accepts version 1 backups, and is not backward compatible with the old app once new data is saved.
 
-## Project files
+When moving from a local file to the hosted app or between devices, export a backup from the source browser, open the destination app and restore it. Restore replaces the destination dataset, not merges it. Use one primary device to avoid conflicting records.
 
-- `index.html` — complete app (HTML, CSS, JavaScript in one file)
-- `README.md` — project overview and technical/setup notes
-- `HOW_TO_USE.md` — daily-use instructions
-
-## Limitations
-
-- The app does not sync data automatically across browsers or devices.
-- It does not distinguish daytime/nighttime data unless you select appropriately named pad types.
-- A day with only some pads entered is treated as a recorded day; for meaningful daily averages, enter **all pads used** that day.
-- Changes to a pad type's default dry weight do not rewrite previously saved measurement weights.
+See [HOW_TO_USE.md](HOW_TO_USE.md) for the daily workflow.

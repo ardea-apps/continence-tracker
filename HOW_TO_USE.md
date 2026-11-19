@@ -1,86 +1,44 @@
-# How to Use Continence Tracker
+# Continence Tracker — How to use
 
-Continence Tracker records the dry and used weight of each pad, calculates the difference, and shows average daily leakage over 7, 14, and 28 days. It works in a modern browser on iPhone, Android, Windows, macOS, or Linux.
+## 1. Start a new pad
 
-## 1. Set up your pad types (once)
+1. Weigh the actual dry pad before putting it on.
+2. Open Continence Tracker and enter its dry weight in grams.
+3. Check the automatically populated start date and time; change them if necessary.
+4. Select **Start measurement**. The active measurement is saved in this browser, even if you close the app.
 
-1. Open **Pad types & settings**.
-2. Enter a name, such as **Day Pad** or **Night Pad**.
-3. Weigh a new, unused pad and enter its **Default dry weight (g)**.
-4. Tap **Add pad type**.
-5. Repeat for other pad types.
+## 2. Change your pad
 
-When you change brands or models, add a new pad type. You can edit an existing profile or archive one you no longer use. Changing a profile's default weight does **not** change older saved measurements.
+When you remove the old pad and put on a new one:
 
-## 2. Record a used pad
+1. Weigh the used pad and the new dry pad separately.
+2. Open the app. The saved dry weight of the old pad is displayed.
+3. Check the removal date and time (defaults to current local time).
+4. Enter the old pad's wet weight and the new pad's actual dry weight.
+5. Select **Complete & start new**. The old measurement is saved and the next one starts at the removal time.
 
-1. Go to **Add measurement**.
-2. Select the **date** (today is preselected).
-3. Choose the **pad type**. Its saved dry weight appears automatically.
-4. Adjust **Dry weight (g)** if this particular unused pad has a different dry weight.
-5. Weigh the used pad and enter **Wet weight (g)**.
-6. Check the displayed **Net weight**, which is the wet weight minus the dry weight.
-7. Tap **Save measurement**.
+If you are not putting on another pad, leave the new dry weight blank and select **Complete only**. Use **Edit active pad** to correct a dry weight or start time, or **Discard active pad** followed by confirmation to remove an unfinished entry.
 
-**Example:** Dry 26 g, wet 34 g → net 8 g.
+Example: A pad weighed 18 g dry and 26 g wet. Its recorded net weight is 8 g. A new pad weighing 21 g dry starts its own independent measurement. No preset pad weights are used.
 
-Add **one measurement for each pad used**. For instance, enter a daytime pad and a nighttime pad separately on the same date. Use the correct date for each measurement consistently.
+## 3. Read your results
 
-## 3. Understand the averages
+The 7-, 14- and 28-day averages represent grams per recorded day, including today. The history shows individual measurements and each date's total. A pad started at night and removed the following morning belongs entirely to the morning's date. Active pads are not counted. Missing dates are excluded; an explicitly recorded zero is counted. A day with only part of its measurements recorded contributes only the recorded amount.
 
-The three cards at the top show **average daily net weight** for the last 7, 14, and 28 calendar days, including today.
+If wet weight is less than dry weight, recheck the measurements. The app does not accept a negative net weight.
 
-- If two pads on the same date have net weights of 8 g and 14 g, that day's total is **22 g**.
-- Days without any measurements are **not** counted as zero. Instead, the app averages across days with at least one measurement.
-- Check the note beneath each average (such as **1 of 7 days recorded**) before interpreting the result.
+## 4. Enter or correct historical data
 
-For the most meaningful averages, enter all pads for each day. If you have not finished entering today's pads, today's total—and the displayed averages—are still provisional.
+Open **Add completed measurement manually**. Enter removal date and both actual weights. Start date/time and removal time are optional. Save. For corrections select **Edit** beside a history entry, then **Update measurement**. To delete, tap **Delete measurement**, then **Confirm delete**. Cancel edit to abandon unsaved changes.
 
-## 4. Correct or delete a measurement
+## 5. Backup and restore
 
-1. In **History**, find the measurement and tap **Edit**.
-2. Update its fields and tap **Update measurement**, or choose **Cancel edit**.
-3. To remove it, tap **Delete measurement** and then **Confirm delete**. The second tap permanently deletes that measurement.
+Open **Backup & data** and select **Export backup (JSON)**. Save the file in a secure folder (on iPhone, Files is one option). It contains all completed measurements and any active measurement. Export regularly and before upgrading, changing devices or clearing browser data.
 
-The history and averages recalculate after changes.
+To restore, select **Restore backup (JSON)**, choose the file, review the entry count, then select **Replace current data**. This replaces the entire current dataset. Export the destination's existing data first if you need to retain it. Version 1.0 backups can be imported; historical pad measurements are preserved, but pad profiles are no longer used.
 
-## 5. Back up your data
+**Export history (CSV)** saves completed measurements for spreadsheet analysis; it is not a restorable backup.
 
-Make a backup regularly, especially before clearing browser history/website data, changing phones, or switching from a local HTML file to GitHub Pages.
+## 6. Using multiple devices
 
-1. Expand **Backup & data**.
-2. Tap **Export backup (JSON)**.
-3. Save the downloaded `.json` file somewhere safe, such as your preferred folder in the Files app.
-
-The JSON backup includes measurements **and** pad settings. **Export history (CSV)** is useful for a spreadsheet, but it is **not** a restorable backup.
-
-## 6. Restore a backup
-
-1. On the browser/device where you want the data, open **Backup & data**.
-2. Tap **Restore backup (JSON)** and select the saved `.json` file.
-3. Read the confirmation: **restoring replaces all existing measurements and pad profiles in that browser**.
-4. Confirm only if you want to replace its current records.
-
-If you have measurements on both devices, back up both first. Restore does not merge two databases.
-
-## 7. Move from the local file to GitHub Pages
-
-Because you're testing `index.html` locally before publishing it, follow these steps when you're ready:
-
-1. In the **local** app, use **Export backup (JSON)** and save the file.
-2. Publish `index.html` to GitHub Pages.
-3. Open the **hosted** app in your browser.
-4. Use **Restore backup (JSON)** to import your local records.
-5. Check the **History** and average cards to verify the transfer.
-
-The local file and the hosted website use different browser storage; measurements do not transfer on their own.
-
-## 8. Use it on your iPhone
-
-After the GitHub Pages version is published, open it in **Safari**. To make it easier to launch, choose **Share → Add to Home Screen**. Use the same browser/site consistently for your records, and keep JSON backups.
-
-## Privacy and care
-
-The app stores entries in the browser on the device being used. It does not send measurements to GitHub. The website may be publicly viewable, even when it is not linked on the Ardea Apps index. Exported backup files are not encrypted, so keep them in a safe place.
-
-**Note:** Net pad weight is an approximate measurement and can include moisture other than urine. The app helps track trends; it does not replace advice from your surgical team.
+The app works in modern desktop and mobile browsers. The hosted app code is on GitHub Pages, but measurements are local to each browser/device. No automatic synchronization occurs. To move from local testing to the hosted app (even on the same device), export JSON from the local copy and restore into the hosted copy. Transfer backups between devices only when desired; do not upload backups to GitHub. Keep one primary data-entry device to avoid conflicting records.
