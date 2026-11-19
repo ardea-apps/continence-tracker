@@ -1,4 +1,4 @@
-# Continence Tracker v1.1
+# Continence Tracker v1.2
 
 A standalone, mobile-friendly HTML application for tracking urinary leakage using individual dry and wet pad weights. No account, server, database, external library or network API is required.
 
@@ -9,6 +9,8 @@ A standalone, mobile-friendly HTML application for tracking urinary leakage usin
 - Complete & Start New saves the old measurement and starts the next one in a single operation.
 - Enter historical completed measurements manually; edit or delete them later.
 - Edit or discard an active measurement.
+- Day/Night classification, with alternating defaults when changing pads.
+- Collapsible History grouped by removal date; daily totals and expandable details.
 - Daily totals and rolling 7-, 14- and 28-day averages.
 - JSON backup and restore, including active measurements; CSV export of completed measurements.
 - Compatible with existing version 1.0 data and JSON backups.
@@ -33,9 +35,9 @@ Works with modern desktop and mobile browsers. On iPhone, Safari's Share → Add
 
 All measurements are kept in browser localStorage under the existing key `continence-tracker-v1`. GitHub hosts code only. Each browser/device/origin maintains its own dataset. There is no automatic synchronization. Local file and hosted storage are separate. Clearing website data or browser storage may erase records. JSON/CSV files are not encrypted; keep them in a secure location and never commit personal data to GitHub. Other scripts on the same web origin may have access to browser storage; local storage is not a security boundary between apps on that origin.
 
-## Upgrade from v1.0
+## Upgrade from v1.0 or v1.1
 
-Export a JSON backup before replacing the HTML. Version 1.1 reads the old storage key and migrates completed entries on the next successful save, retaining their dates and dry/wet values and historical pad names. Old entries have no start/end timestamps; these remain blank rather than being invented. Old profile settings are no longer used or included in new backups. Version 1.1 uses backup schema version 2, accepts version 1 backups, and is not backward compatible with the old app once new data is saved.
+Export a JSON backup before replacing the HTML. Version 1.2 reads the existing storage key and accepts backup schemas 1, 2 and 3. Existing completed and active measurements retain their weights, dates and timestamps; missing Day/Night classifications remain unclassified until edited. Old pad names are preserved where available. New backups use schema 3 to preserve the period field; older versions cannot read them. Rolling average calculations are unchanged.
 
 When moving from a local file to the hosted app or between devices, export a backup from the source browser, open the destination app and restore it. Restore replaces the destination dataset, not merges it. Use one primary device to avoid conflicting records.
 
