@@ -1,4 +1,4 @@
-# Continence Tracker v1.2
+# Continence Tracker v1.2.1
 
 A standalone, mobile-friendly HTML application for tracking urinary leakage using individual dry and wet pad weights. No account, server, database, external library or network API is required.
 
@@ -6,7 +6,7 @@ A standalone, mobile-friendly HTML application for tracking urinary leakage usin
 
 - Start a measurement by entering the actual dry weight and start time.
 - Complete it later using the actual wet weight and removal time.
-- Complete & Start New saves the old measurement and starts the next one in a single operation.
+- Complete & Start New requires both the current wet weight and the new pad’s actual dry weight; it saves the old measurement and starts the next one in a single operation.
 - Enter historical completed measurements manually; edit or delete them later.
 - Edit or discard an active measurement.
 - Day/Night classification, with alternating defaults when changing pads.
@@ -17,7 +17,7 @@ A standalone, mobile-friendly HTML application for tracking urinary leakage usin
 
 ## Calculations
 
-Net weight = wet weight − dry weight, in grams. Each pad is weighed individually; no pad profiles or default weights are needed. All of a completed pad's net weight belongs to its removal date (including when use spans midnight). Daily totals sum all completed measurements for that date. Rolling averages include today and the preceding 6, 13 or 27 calendar days respectively, dividing by the number of dates with completed measurements. Missing dates are excluded, not zero; a partially recorded day is included as recorded. Active measurements do not contribute. Pad-weight gain is a proxy for leakage and may include other moisture.
+Net weight = wet weight − dry weight, in grams. Each pad is weighed individually; no pad profiles or default weights are needed. All of a completed pad's net weight belongs to its removal date (including when use spans midnight). Daily totals sum all completed measurements for that date. Rolling averages use the preceding 7, 14 or 28 completed local calendar days, ending yesterday, dividing by the number of dates with completed measurements. Today is excluded until the next calendar day but remains visible in History. Missing dates are excluded, not zero; past dates with incomplete records contribute only their recorded amount. Active measurements do not contribute. Pad-weight gain is a proxy for leakage and may include other moisture.
 
 ## Running and publishing
 
@@ -37,7 +37,7 @@ All measurements are kept in browser localStorage under the existing key `contin
 
 ## Upgrade from v1.0 or v1.1
 
-Export a JSON backup before replacing the HTML. Version 1.2 reads the existing storage key and accepts backup schemas 1, 2 and 3. Existing completed and active measurements retain their weights, dates and timestamps; missing Day/Night classifications remain unclassified until edited. Old pad names are preserved where available. New backups use schema 3 to preserve the period field; older versions cannot read them. Rolling average calculations are unchanged.
+Export a JSON backup before replacing the HTML. Version 1.2.1 reads the existing storage key and accepts backup schemas 1, 2 and 3. Existing completed and active measurements retain their weights, dates and timestamps; missing Day/Night classifications remain unclassified until edited. Old pad names are preserved where available. New backups use schema 3 to preserve the period field; older versions cannot read them. Rolling averages now exclude the current calendar day.
 
 When moving from a local file to the hosted app or between devices, export a backup from the source browser, open the destination app and restore it. Restore replaces the destination dataset, not merges it. Use one primary device to avoid conflicting records.
 
