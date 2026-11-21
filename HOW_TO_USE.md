@@ -1,4 +1,4 @@
-# Continence Tracker v1.3 — How to use
+# Continence Tracker v1.3.2 — How to use
 
 ## 1. Start a new pad (when none is active)
 
@@ -41,7 +41,7 @@ Expand **History**, then open **Add completed measurement manually**. Enter remo
 
 ## 5. Backup and restore
 
-Open **Backup & data** and select **Export backup (JSON)**. Save the file in a secure folder (on iPhone, Files is one option). It contains all completed measurements and any active measurement. Export regularly and before upgrading, changing devices or clearing browser data.
+Open **Backup & data** and select **Export backup (JSON)**. Save the file in a secure folder (on iPhone, Files is one option). It contains all completed measurements and any active measurement. Export regularly and before upgrading, changing devices or clearing browser data. Each JSON backup has a filename with local date and time down to the second, such as `continence-tracker-backup-2026-11-21_143527.json`, so multiple backups on the same day normally have distinct names. This changes only the name, not the backup format or restore procedure.
 
 To restore, select **Restore backup (JSON)**, choose the file, review the entry count, then select **Replace current data**. This replaces the entire current dataset. Export the destination's existing data first if you need to retain it. Version 1.0 and 1.1 backups can be imported. Existing measurements remain unclassified unless a period was already saved. Assign Day/Night through Edit if desired. Version 1.2.2 backups include Day/Night for completed and active measurements; older apps cannot read the new schema.
 
