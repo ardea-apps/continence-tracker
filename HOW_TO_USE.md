@@ -1,25 +1,33 @@
-# Continence Tracker v1.2.1 — How to use
+# Continence Tracker v1.3 — How to use
 
-## 1. Start a new pad
+## 1. Start a new pad (when none is active)
 
 1. Weigh the actual dry pad before putting it on.
 2. Open Continence Tracker and enter its dry weight in grams and select Day or Night.
 3. Check the automatically populated start date and time; change them if necessary.
-4. Select **Start measurement**. The active measurement is saved in this browser, even if you close the app.
+4. Select **Start Pad**. The active measurement is saved in this browser, even if you close the app.
 
-## 2. Change your pad
+## 2. Close the current pad, then start the next one
 
-When you remove the old pad and put on a new one:
+**First: complete the used pad.**
 
-1. Weigh the used pad and the new dry pad separately.
-2. Open the app. The saved dry weight of the old pad is displayed.
-3. Check the removal date and time (defaults to current local time).
-4. Enter the old pad's wet weight and the new pad's actual dry weight.
-5. Check the new pad’s Day/Night selection (defaults to the opposite of the completed pad, but can be overridden). Select **Complete & start new** (enabled only when both weights are valid). The old measurement is saved and the next one starts at the removal time.
+1. Remove the current pad and weigh it wet.
+2. Open the app. The active pad’s saved dry weight is shown.
+3. Check the removal date and time (defaults to now).
+4. Enter the used pad’s wet weight and tap **Close Pad**.
+5. The completed measurement is saved immediately and appears in History under the removal date. The app immediately switches to **Start New Pad**, with no separate page or confirmation.
 
-If you are not putting on another pad, leave the new dry weight blank and select **Complete only**. Use **Edit active pad** to correct a dry weight, start time or period, or **Discard active pad** followed by confirmation to remove an unfinished entry.
+**Next: start the replacement pad.**
 
-Example: A pad weighed 18 g dry and 26 g wet. Its recorded net weight is 8 g. A new pad weighing 21 g dry starts its own independent measurement. No preset pad weights are used.
+1. Weigh the new pad dry.
+2. On the **Start New Pad** screen, check the Day/Night selection and start date/time.
+3. Enter its actual dry weight and tap **Start Pad**.
+
+You can leave the app after completing the old pad and return later to start another. You cannot accidentally overwrite the completed pad by abandoning the second step.
+
+If you are not putting on another pad, simply stop after **Close Pad**. Use **Edit active pad** to correct the current pad’s dry weight, start time or period, or **Discard active pad**, then confirmation, to remove an unfinished entry.
+
+Example: A pad weighs 18 g dry and 26 g wet. Complete it to record 8 g net. Then start a separate measurement for a replacement pad weighing 21 g dry. No preset pad weights are used.
 
 ## 3. Read your results
 
@@ -35,7 +43,7 @@ Expand **History**, then open **Add completed measurement manually**. Enter remo
 
 Open **Backup & data** and select **Export backup (JSON)**. Save the file in a secure folder (on iPhone, Files is one option). It contains all completed measurements and any active measurement. Export regularly and before upgrading, changing devices or clearing browser data.
 
-To restore, select **Restore backup (JSON)**, choose the file, review the entry count, then select **Replace current data**. This replaces the entire current dataset. Export the destination's existing data first if you need to retain it. Version 1.0 and 1.1 backups can be imported. Existing measurements remain unclassified unless a period was already saved. Assign Day/Night through Edit if desired. Version 1.2.1 backups include Day/Night for completed and active measurements; older apps cannot read the new schema.
+To restore, select **Restore backup (JSON)**, choose the file, review the entry count, then select **Replace current data**. This replaces the entire current dataset. Export the destination's existing data first if you need to retain it. Version 1.0 and 1.1 backups can be imported. Existing measurements remain unclassified unless a period was already saved. Assign Day/Night through Edit if desired. Version 1.2.2 backups include Day/Night for completed and active measurements; older apps cannot read the new schema.
 
 **Export history (CSV)** saves completed measurements for spreadsheet analysis; it includes the Day/Night period and is not a restorable backup.
 

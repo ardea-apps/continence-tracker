@@ -1,15 +1,15 @@
-# Continence Tracker v1.2.1
+# Continence Tracker v1.3
 
 A standalone, mobile-friendly HTML application for tracking urinary leakage using individual dry and wet pad weights. No account, server, database, external library or network API is required.
 
 ## Features
 
-- Start a measurement by entering the actual dry weight and start time.
-- Complete it later using the actual wet weight and removal time.
-- Complete & Start New requires both the current wet weight and the new pad’s actual dry weight; it saves the old measurement and starts the next one in a single operation.
+- When no pad is active, the main screen shows **Start New Pad**. Enter the actual dry weight, select Day/Night, and select **Start Pad**.
+- When a pad is active, the same area shows **Close Current Pad**. Enter the actual wet weight and select **Close Pad**.
+- After closing, the completed entry is saved to History and the **Start New Pad** form appears immediately, with no intermediate confirmation or page navigation. The app remembers which state it is in when reopened.
 - Enter historical completed measurements manually; edit or delete them later.
 - Edit or discard an active measurement.
-- Day/Night classification, with alternating defaults when changing pads.
+- Day/Night classification, with a suggested opposite period for the next pad (editable).
 - Collapsible History grouped by removal date; daily totals and expandable details.
 - Daily totals and rolling 7-, 14- and 28-day averages.
 - JSON backup and restore, including active measurements; CSV export of completed measurements.
@@ -37,8 +37,12 @@ All measurements are kept in browser localStorage under the existing key `contin
 
 ## Upgrade from v1.0 or v1.1
 
-Export a JSON backup before replacing the HTML. Version 1.2.1 reads the existing storage key and accepts backup schemas 1, 2 and 3. Existing completed and active measurements retain their weights, dates and timestamps; missing Day/Night classifications remain unclassified until edited. Old pad names are preserved where available. New backups use schema 3 to preserve the period field; older versions cannot read them. Rolling averages now exclude the current calendar day.
+Export a JSON backup before replacing the HTML. Version 1.3 reads the existing storage key and accepts backup schemas 1, 2 and 3. Existing completed and active measurements retain their weights, dates and timestamps; missing Day/Night classifications remain unclassified until edited. Old pad names are preserved where available. New backups use schema 3 to preserve the period field; older versions cannot read them. Rolling averages exclude the current calendar day. Version 1.3 uses a single adaptive main screen: close the current pad first, then start a replacement. It also places this workflow above the averages. The stored data format is unchanged.
 
 When moving from a local file to the hosted app or between devices, export a backup from the source browser, open the destination app and restore it. Restore replaces the destination dataset, not merges it. Use one primary device to avoid conflicting records.
 
 See [HOW_TO_USE.md](HOW_TO_USE.md) for the daily workflow.
+
+## Release files
+
+`continence-tracker-v1.3.html` and `index.html` are identical. Use the versioned file for archiving and `index.html` for deployment.
