@@ -1,4 +1,4 @@
-# Continence Tracker v1.3.2 — How to use
+# Continence Tracker v1.3.3 — How to use
 
 ## 1. Start a new pad (when none is active)
 
@@ -31,7 +31,7 @@ Example: A pad weighs 18 g dry and 26 g wet. Complete it to record 8 g net. Then
 
 ## 3. Read your results
 
-The 7-, 14- and 28-day averages represent grams per recorded day, using the preceding 7, 14 or 28 completed local calendar days, ending yesterday. Today is visible in History but does not affect averages until tomorrow. History is collapsed by default. Expand **History** to see daily totals, newest first. Expand an individual date to see its measurements, Day/Night classification and Edit buttons. A pad started at night and removed the following morning belongs entirely to the morning's date. Active pads are not counted. Missing dates are excluded; an explicitly recorded zero is counted. A past day with only part of its measurements recorded contributes only the recorded amount.
+The 7-, 14- and 28-day averages represent grams per recorded day, using the preceding 7, 14 or 28 completed local calendar days, ending yesterday. Today is visible in History but does not affect averages until tomorrow. Below each main average you will also see Day and Night averages, calculated as their total net weights divided by the same number of recorded calendar days used for the main average. For dates with a measurement but no Day or Night entry, that component contributes zero. Older measurements without a Day/Night classification remain included in the combined average; if present, an Other amount appears below the breakdown. For classified measurements, Day plus Night equals the combined average. History is collapsed by default. Expand **History** to see daily totals, newest first. Expand an individual date to see its measurements, Day/Night classification and Edit buttons. A pad started at night and removed the following morning belongs entirely to the morning's date. Active pads are not counted. Missing dates are excluded; an explicitly recorded zero is counted. A past day with only part of its measurements recorded contributes only the recorded amount.
 
 If wet weight is less than dry weight, recheck the measurements. The app does not accept a negative net weight.
 
